@@ -1,0 +1,8 @@
+ .required:after {
+    content:" *";
+    margin-left:0.2em;
+    color: red;
+  }
+  .FileChoosen{
+    display:none;
+  }
