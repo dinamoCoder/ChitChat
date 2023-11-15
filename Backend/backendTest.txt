@@ -1,0 +1,5 @@
+----------- My research ------------------
+
+App.config cannot be used in class library.
+App.settings can be used in class library.
+In class library we can also use the Environment.setEnvironmentVariable() method.
