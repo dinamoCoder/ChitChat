@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import the css file
 import "./Register.css";
-import image from "../StaticImages/download.png";
+import image from "../../StaticImages/download.png";
 
 function Register() {
   // here we will create the state...........
