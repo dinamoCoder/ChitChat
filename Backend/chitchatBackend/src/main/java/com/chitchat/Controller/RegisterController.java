@@ -2,7 +2,6 @@ package com.chitchat.Controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.AccessType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,6 +29,11 @@ public class RegisterController {
          var registerUser = this._modelMapper.map(register, User.class);
          System.out.println(registerUser.UserName);
         if (registerUser != null) {
+            if(_loginRegisterService.CheckUser(registerUser.UserName)!=null){
+                var registerResponse = new RegisterResponse();
+                registerResponse.setMessage("User Already Registered");
+                return new ResponseEntity<RegisterResponse>(registerResponse, HttpStatus.BAD_REQUEST);
+            }
            RegisterResponse createUser = _loginRegisterService.RegisterUser(registerUser);
            if(createUser.Success){
                return new ResponseEntity<RegisterResponse>(createUser, HttpStatus.OK);

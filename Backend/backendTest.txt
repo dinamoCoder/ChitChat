@@ -1,5 +1,11 @@
------------ My research ------------------
+Backend Workflow ------------------------------------------
 
-App.config cannot be used in class library.
-App.settings can be used in class library.
-In class library we can also use the Environment.setEnvironmentVariable() method.
+- Create an endpoint for register.
+- Try to Implement the jwt authentication and authorization.
+  In register case we will get the user data that it will pass and through this data we will create a jwt token 
+  and send it to the user.
+  Now we want to implement the picture of refresh token..........
+  
+Note: 2 Work 
+- First find out the validate data in backend
+- Refresh token ki khanai
