@@ -1,5 +1,12 @@
 package com.chitchat.ViewModels;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
 public class RegisterResponse {
     public String Email;
     public String UserName;

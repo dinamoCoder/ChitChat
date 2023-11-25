@@ -24,7 +24,6 @@ public class RegisterController {
         this._modelMapper = modelMapper;
     }
     @PostMapping("/register")
-
     public ResponseEntity<RegisterResponse> RegisterUser(@RequestBody RegisterRequest register) {
          var registerUser = this._modelMapper.map(register, User.class);
          System.out.println(registerUser.UserName);
@@ -35,6 +34,7 @@ public class RegisterController {
                 return new ResponseEntity<RegisterResponse>(registerResponse, HttpStatus.BAD_REQUEST);
             }
            RegisterResponse createUser = _loginRegisterService.RegisterUser(registerUser);
+           // set it  role by deault
            if(createUser.Success){
                return new ResponseEntity<RegisterResponse>(createUser, HttpStatus.OK);
            }

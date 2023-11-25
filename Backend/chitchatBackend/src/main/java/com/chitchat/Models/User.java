@@ -1,7 +1,9 @@
 package com.chitchat.Models;
-
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
+
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,11 +14,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.chitchat.Models.Enum.Role;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Document("Users")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements UserDetails {
     @Id
-    @Field("userId")
-    public String UserId; // this is a primary key........................
+    public ObjectId userId;
     @Field("logo")
     public String Logo;
     @Field("email")
@@ -30,6 +40,10 @@ public class User implements UserDetails {
     @Transient // this will ignore this property and not stored it in database...........
     public boolean Success;
     public Role Role;
+    @Field("refreshToken")
+    public String RefreshToken;
+    @Field("refreshTokenExpireDate")
+    public java.util.Date RefreshTokenExpireDate;
 
     public void setLogo(String logo) {
         this.Logo = logo;
